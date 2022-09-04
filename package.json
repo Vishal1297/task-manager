@@ -4,22 +4,22 @@
   "description": "A task manager app.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "devstart": "nodemon index.js",
+    "start": "node server.js",
+    "devstart": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "node",
-    "express"
+    "express",
+    "mongoose"
   ],
   "author": "Vishal1297",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
+    "mongoose": "^6.5.4",
     "nodemon": "^2.0.19"
-  },
-  "devDependencies": {
-    "eslint": "^8.23.0"
   }
 }
