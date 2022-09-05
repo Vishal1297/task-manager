@@ -9,7 +9,7 @@ module.exports = mongoose => {
         },
 
         {
-            timestams: true
+            timestamps: true
         }
     );
 

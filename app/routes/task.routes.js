@@ -1,26 +1,30 @@
-module.exports = (app) => {
-  const tasks = require("../controllers/task.controller");
+const tasks = require("../controllers/task.controller");
 
-  const router = require("express").Router();
+const router = require("express").Router();
 
-  /**
-   * Create new task
-   */
+/**
+ * Create new task
+ */
 
-  router.post("/task", tasks.create);
+router.post("/task", tasks.create);
 
-  /**
-   * Update task
-   */
+/**
+ * Update task
+ */
 
-  router.put("/task", tasks.update);
-  
-
-  /**
-   * Get all task
-   */
-
-  router.get("/tasks", tasks.findAll);
+router.put("/task", tasks.update);
 
 
-};
+/**
+ * Delete task
+ */
+
+router.delete("/task:id", tasks.update);
+
+/**
+ * Get all task
+ */
+
+router.get("/tasks", tasks.findAll);
+
+module.exports = router;

@@ -18,7 +18,13 @@ app.get("/", (req, res) => {
   res.send({ data: "Welcome to task manager", status: 200, error: null });
 });
 
-app.use("/tasks/v1", require("./app/controllers/task.controller.js")(app));
+/**
+ * Middlewares
+ */
+
+const taskRoutes = require("./app/routes/task.routes");
+
+app.use("/tasks/v1", taskRoutes);
 
 const PORT = process.env.PORT || 3000;
 

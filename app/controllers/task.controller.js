@@ -5,6 +5,7 @@ exports.create = (req, res) => {
   /**
    * Validate request
    */
+
   /**
    * Create
    */
@@ -14,8 +15,19 @@ exports.update = (req, res) => {
   /**
    * Validate request
    */
+  
   /**
    * Create
+   */
+};
+
+exports.delete = (req, res) => {
+  /**
+   * Validate request
+   */
+
+  /**
+   * Delete
    */
 };
 
