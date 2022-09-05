@@ -5,7 +5,8 @@ module.exports = mongoose => {
             uuid: String,
             title: String,
             desciption: String,
-            createdAt: Number
+            createdAt: Number,
+            isCompleted: Boolean
         },
 
         {
@@ -15,7 +16,7 @@ module.exports = mongoose => {
 
     schema.method("toJSON", function () {
         const { __v, _id, ...object } = this.toObject()
-        object.id = _id;
+        object.uuid = _id;
         return object;
     });
 

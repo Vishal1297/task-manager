@@ -4,6 +4,8 @@ const cors = require("cors");
 
 const app = express();
 
+app.use(express.json());
+
 /**
  * DB connection
  */
