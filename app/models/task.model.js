@@ -4,7 +4,7 @@ module.exports = mongoose => {
         {
             uuid: String,
             title: String,
-            desciption: String,
+            description: String,
             createdAt: Number,
             isCompleted: Boolean
         },

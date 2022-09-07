@@ -27,4 +27,10 @@ router.delete("/task/:id", tasks.delete);
 
 router.get("/tasks", tasks.findAll);
 
+/**
+ * Delete all tasks
+ */
+
+router.delete("/tasks", tasks.deleteAll);
+
 module.exports = router;
