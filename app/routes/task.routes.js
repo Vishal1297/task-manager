@@ -19,7 +19,7 @@ router.put("/task", tasks.update);
  * Delete task
  */
 
-router.delete("/task:id", tasks.update);
+router.delete("/task/:id", tasks.delete);
 
 /**
  * Get all task
