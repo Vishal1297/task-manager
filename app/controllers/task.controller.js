@@ -1,4 +1,3 @@
-const e = require("express");
 const db = require("../models/mongoose.js");
 const Task = db.tasks;
 
@@ -73,14 +72,12 @@ exports.update = (req, res) => {
           status: 400,
           error: `Task not found by id ${uuid}`,
         });
-        return;
       } else {
         res.send({
           data: data,
           status: 400,
           error: null,
         });
-        return;
       }
     })
     .catch((error) => {
@@ -89,7 +86,6 @@ exports.update = (req, res) => {
         status: 400,
         error: `Error while updating task at uuid ${uuid}`,
       });
-      return;
     });
 };
 
