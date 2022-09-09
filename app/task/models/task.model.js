@@ -4,22 +4,21 @@ module.exports = mongoose => {
         {
             uuid: String,
             title: String,
+            type: String,
             description: String,
             createdAt: Number,
             isCompleted: Boolean
         },
-
         {
             timestamps: true
         }
     );
 
     schema.method("toJSON", function () {
-        const { __v, _id, ...object } = this.toObject()
+        const {__v, _id, ...object} = this.toObject()
         object.uuid = _id;
         return object;
     });
 
-    const Task = mongoose.model("task", schema);
-    return Task;
+    return mongoose.model("task", schema);
 };

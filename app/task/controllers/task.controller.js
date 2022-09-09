@@ -6,8 +6,18 @@ exports.create = (req, res) => {
    * Validate request
    */
 
+  if (req.body.uuid) {
+    res.send({ data: null, status: 400, error: "Task update now allowed" });
+    return;
+  }
+
   if (!req.body.title) {
     res.send({ data: null, status: 400, error: "Task title is required" });
+    return;
+  }
+
+  if (!req.body.type) {
+    res.send({ data: null, status: 400, error: "Task type is required" });
     return;
   }
 
@@ -15,11 +25,10 @@ exports.create = (req, res) => {
    * Create task
    */
 
-  console.log("Create task request:", req.body);
-
   const task = new Task({
     uuid: req.body.uuid,
     title: req.body.title,
+    type: req.body.type,
     description: req.body.description,
     createdAt: req.body.createdAt,
   });
@@ -27,7 +36,6 @@ exports.create = (req, res) => {
   task
     .save(task)
     .then((data) => {
-      console.log("saved data", data);
       res.send({ data: data, status: 200, error: null });
     })
     .catch((error) => {
@@ -35,8 +43,7 @@ exports.create = (req, res) => {
       res.send({
         data: null,
         status: 400,
-        error:
-          error.message || "Some error occurred while creating the Tutorial.",
+        error: error.message || "Some error occurred while creating the Tutorial.",
       });
     });
 };
@@ -46,8 +53,6 @@ exports.update = (req, res) => {
    * Validate request
    */
 
-  console.log("Update task request:", req.body);
-
   if (!req.body.uuid) {
     res.send({ data: null, status: 400, error: "Task uuid is required" });
     return;
@@ -55,6 +60,11 @@ exports.update = (req, res) => {
 
   if (!req.body.title) {
     res.send({ data: null, status: 400, error: "Task title is required" });
+    return;
+  }
+
+  if (!req.body.type) {
+    res.send({ data: null, status: 400, error: "Task type is required" });
     return;
   }
 
